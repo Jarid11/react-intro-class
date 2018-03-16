@@ -16,9 +16,15 @@ class Calculator extends Component {
     this.updateHeader = this.updateHeader.bind(this);
   }
 
-  updateHeader(val) {
+  updateHeader(num) {
     this.setState({
-      header: val
+      display: this.state.display + num
+    });
+  }
+
+  setDisplay(num) {
+    this.setState({
+      display: num
     });
   }
 
@@ -37,21 +43,21 @@ class Calculator extends Component {
         />
         <div id="calculator-mask" className="remove-highlight">
           <div className="output">
-            <span className="total" />
+            <span className="total"> {this.state.display} </span>
           </div>
 
           <div className="btn clear" />
 
-          <div className="btn zero" />
-          <div className="btn one" />
-          <div className="btn two" />
-          <div className="btn three" />
-          <div className="btn four" />
-          <div className="btn five" />
-          <div className="btn six" />
-          <div className="btn seven" />
-          <div className="btn eight" />
-          <div className="btn nine" />
+          <div className="btn zero" onClick={() => this.setDisplay("0")} />
+          <div className="btn one" onClick={() => this.setDisplay("1")} />
+          <div className="btn two" onClick={() => this.setDisplay("2")} />
+          <div className="btn three" onClick={() => this.setDisplay("3")} />
+          <div className="btn four" onClick={() => this.setDisplay("4")} />
+          <div className="btn five" onClick={() => this.setDisplay("5")} />
+          <div className="btn six" onClick={() => this.setDisplay("6")} />
+          <div className="btn seven" onClick={() => this.setDisplay("7")} />
+          <div className="btn eight" onClick={() => this.setDisplay("8")} />
+          <div className="btn nine" onClick={() => this.setDisplay("9")} />
 
           <div className="btn equal" />
           <div className="btn multiply" />
